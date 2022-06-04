@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/form.css" />
+  </head>
+  <body>
+    <div th:insert="header :: head"></div>
+    <form th:action="@{/save}" method="post" th:object="${employee}">
+      <h2>Add new employee</h2>
+      <input type="hidden" th:field="${employee.id}">
+      <div>
+        <label class="label">First Name:</label>
+        <input th:field="${employee.firstName}" />
+      </div>
+      <div>
+        <label class="label">Last Name:</label>
+        <input th:field="${employee.lastName}" />
+      </div>
+      <div>
+        <label>Gender:</label>
+        <div class="gender__wrapper">
+          <label class="gender__label" for="male">Male</label>
+          <input
+            class="gender__input"
+            type="radio"
+            id="male"
+            value="Male"
+            th:field="${employee.gender}"
+          />
+          <label class="gender__label gender__label-female" for="female"
+            >Female</label
+          >
+          <input
+            class="gender__input"
+            type="radio"
+            id="female"
+            value="Female"
+            th:field="${employee.gender}"
+          />
+        </div>
+      </div>
+      <div>
+        <label class="label">Department:</label>
+        <input th:field="${employee.department}" />
+      </div>
+      <div>
+        <label class="label">Country:</label>
+        <input th:field="${employee.country}" placeholder=>
+      </div>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

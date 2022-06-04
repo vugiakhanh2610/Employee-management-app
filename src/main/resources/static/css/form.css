@@ -1,0 +1,65 @@
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.6rem;
+}
+a {
+  text-decoration: none;
+}
+
+form {
+  width: 40%;
+  margin: 10rem auto;
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  padding: 5rem;
+  background-color: white;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: 2.2rem
+}
+form div {
+  margin-bottom: 3rem;
+}
+
+input {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  outline: none;
+}
+
+button {
+font-size: 1.8rem;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #2979ff;
+  color: white;
+  cursor: pointer;
+  transition: all linear 0.1s;
+}
+button:hover {
+opacity: 0.8;
+}
+
+.gender__label-female {
+  margin-left: 6rem;
+}
+.gender__input {
+  width: auto;
+}
+

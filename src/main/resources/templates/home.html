@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    you're welcome
+  </head>
+  <body>
+    <div th:insert="header :: head"></div>
+
+    <h1>Employee List</h1>
+    <!-- Add/Search -->
+    <div class="wrap">
+      <a id="add" th:href="@{/add}"
+        ><i class="fa-solid fa-plus"></i> Add Employee</a
+      >
+      <form th:action="@{/}">
+        <input
+          type="text"
+          name="keyword"
+          th:value="${keyword}"
+          placeholder="Type to search.."
+        />
+        <i class="search fa-solid fa-magnifying-glass"></i>
+        <!-- No button, you have to press enter !!! -->
+      </form>
+    </div>
+    <!-- Add/Search -->
+
+    <!-- Table -->
+    <table>
+      <tr>
+        <th>
+          <a th:href="@{'/'+${currentPage}+'/id/'+${reverse}}"
+            >ID <i class="fa-solid fa-caret-down"></i
+          ></a>
+        </th>
+        <th>
+          <a th:href="@{'/'+${currentPage}+'/firstName/'+${reverse}}"
+            >First Name <i class="fa-solid fa-caret-down"></i
+          ></a>
+        </th>
+        <th>
+          <a th:href="@{'/'+${currentPage}+'/lastName/'+${reverse}}"
+            >Last Name <i class="fa-solid fa-caret-down"></i
+          ></a>
+        </th>
+        <td>Actions</td>
+      </tr>
+      <tr th:each="e : ${employees}">
+        <td th:text="${e.id}"></td>
+        <td th:text="${e.firstName}"></td>
+        <td th:text="${e.lastName}"></td>
+        <td class="wrapper">
+          <a class="btn btn__green" th:href="@{/view/}+${e.id}"
+            ><i class="fa-solid fa-eye"></i> View</a
+          >
+          <a class="btn btn__red" th:href="@{/delete/}+${e.id}"
+            ><i class="fa-solid fa-trash-can"></i> Delete</a
+          >
+          <a class="btn btn__green" th:href="@{/update/}+${e.id}"
+            ><i class="fa-solid fa-pen-to-square"></i> Update</a
+          >
+        </td>
+      </tr>
+    </table>
+    <!-- Table -->
+
+    <!-- Pagination -->
+    <div class="pagination" th:if="${totalPage > 1}">
+      <!-- Pre -->
+      <a
+        th:if="${currentPage != 0}"
+        class="pagination__btn pagination-skip"
+        th:href="@{'/'+${currentPage-1}+'/'+${property}+'/'+${direction}}"
+        ><i class="fa-solid fa-angles-left"></i> Prev</a
+      >
+      <a
+        th:if="${currentPage == 0}"
+        class="pagination__btn pagination-skip pagination-none"
+        ><i class="fa-solid fa-angles-left"></i> Prev</a
+      >
+      <!-- Pre -->
+
+      <!-- Number -->
+      <div>
+        <span th:each="i : ${#numbers.sequence(0, totalPage)}">
+          <a
+            th:if="${currentPage == i}"
+            class="pagination__btn pagination-number pagination-none"
+            >[[${i+1}]]</a
+          >
+          <a
+            th:if="${currentPage != i}"
+            th:href="@{'/'+${i}+'/'+${property}+'/'+${direction}}"
+            class="pagination__btn pagination-number"
+            >[[${i+1}]]</a
+          >
+        </span>
+      </div>
+      <!-- Number -->
+
+      <!-- Next -->
+      <a
+        th:if="${currentPage < totalPage}"
+        class="pagination__btn pagination-skip"
+        th:href="@{'/'+${currentPage+1}+'/'+${property}+'/'+${direction}}"
+        >Next <i class="fa-solid fa-angles-right"></i
+      ></a>
+      <a
+        th:unless="${currentPage < totalPage}"
+        class="pagination__btn pagination-skip pagination-none"
+        >Next <i class="fa-solid fa-angles-right"></i
+      ></a>
+      <!-- Next -->
+    </div>
+    <!-- Pagination -->
+  </body>
+</html>

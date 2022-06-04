@@ -1,0 +1,174 @@
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.6rem;
+}
+a {
+  text-decoration: none;
+}
+input {
+outline: none;
+}
+
+h1 {
+margin-top: 5rem;
+padding-top: 1rem;
+margin-bottom: 2rem;
+  text-align: center;
+  font-size: 3rem;
+}
+.wrap {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+form {
+width: 30rem;
+position: relative;
+}
+
+form input {
+width: 100%;
+display: inline;
+  padding: 1rem;
+  border: 2px solid #2979ff;
+  border-radius: 20px;
+  outline: none;
+  position: relative;
+}
+form input:focus {
+  outline: none;
+}
+form input::placeholder {
+  color: #d9dae0;
+}
+.search {
+position: absolute;
+top: 50%;
+right: 2rem;
+transform: translateY(-50%);
+}
+#add {
+  padding: 1rem 2rem;
+  background-color: #2979ff;
+  border-radius: 6px;
+  color: white;
+  transition: all linear 0.1s;
+}
+#add:hover {
+opacity: 0.6;
+}
+
+
+table {
+border-collapse: collapse;
+  margin: 3rem auto 7rem;
+  width: 80%;  
+}
+table td, tr, th {
+  border: 1px solid #dee2e6;
+  padding: 1rem 2rem;
+}
+table th {
+  text-align: start;
+  cursor: pointer;
+}
+table th a {
+  color: black;
+  transition: all linear 0.1s;
+}
+table th a:hover {
+  color: #d9dae0;
+}
+
+
+table td:last-child {
+width: 30%;
+}
+table td:first-child {
+width: 10%
+}
+table tr:first-child {
+  font-weight: bold;
+}
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn {
+display: inline-block;
+  min-width: 7rem;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.5rem;
+  color: white;
+  transition: all linear 0.1s;
+}
+.btn:hover {
+opacity: 0.6;
+}
+.btn__red {
+background-color: #dc3545;
+}
+.btn__green {
+background-color: #21b2ab;
+}
+
+.pagination {
+display: inline-block;
+width: 35rem;
+position: fixed;
+bottom: 1rem;
+left: 0;
+right: 0;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #21b2ab;
+}
+
+.pagination div {
+width: 40%;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+}
+.pagination__btn {
+color: white;
+padding: 0.5rem 1rem;
+  transition: all linear 0.1s;
+}
+.pagination__btn:hover {
+color: #21b2ab;
+background-color: white
+}
+.pagination-number {
+border-radius: 50%;
+}
+.pagination-skip {
+padding: 0.5rem 1.5rem;
+border-radius: 20px;
+}
+.pagination-none {
+pointer-events: none;
+cursor: default;
+opacity: 0.6;
+}
+
+
+
+
+
+
+
+

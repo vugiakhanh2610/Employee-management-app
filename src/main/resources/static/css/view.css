@@ -1,0 +1,33 @@
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.6rem;
+}
+a {
+  text-decoration: none;
+}
+
+table {
+border-collapse: collapse;
+  margin: 10rem auto;
+}
+table * {
+  padding: 1rem 2rem;
+}
+table tr {
+border: 1px solid #dee2e6;
+}
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.title {
+text-align: center;
+font-size: 3rem;
+font-weight: bold;
+}
+
